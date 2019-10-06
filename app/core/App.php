@@ -2,9 +2,25 @@
 
 class App {
 	public function __construct() {
-		echo "OK BOS !";
+		$url = $this->parseURL();
+		var_dump($url);
 	}
 
+
+	public function parseURL() {
+		if ( isset($_GET['url']) ) {
+			// menghilangkan garis miring
+			$url = rtrim($_GET['url'], '/');
+			$url = filter_var($url, FILTER_SANITIZE_URL);
+			$url = explode('/', $url);
+			return $url;
+			//melakukan routing dari halaman index
+		}
+	}
 }
+
+
+
+
 
 
