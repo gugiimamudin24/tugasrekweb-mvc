@@ -12,7 +12,7 @@
 	<div class="row">
 		<div class="col-lg-6">
 
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#formModal">
+		<button type="button" class="btn btn-primary tombolTambahData" data-toggle="modal" data-target="#formModal">
 		Tambah data Mahasiswa
 		</button>
 		<br>
@@ -25,6 +25,8 @@
   					<?= $mhs['nama']; ?>
 					  <a href="<?= BASEURL; ?>/mahasiswa/hapus/<?= $mhs['id'];
 					   ?>" class="badge badge-danger float-right ml-1" onclick="return confirm('yakin ?');">hapus</a>
+					   <a href="<?= BASEURL; ?>/mahasiswa/ubah/<?= $mhs['id'];
+						?>" class="badge badge-success float-right tampilModalUbah ml-1" data-toggle="modal" data-target="#formModal" data-id="<?=$mhs['$id']; ?>">ubah</a>
 					   <a href="<?= BASEURL; ?>/mahasiswa/detail/<?= $mhs['id'];
 						?>" class="badge badge-info float-right ml-1">detail</a>
   					</li>
@@ -44,7 +46,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="judulModal">Tambah data Mahasiswa</h5>
+        <h5 class="modal-title" id="formModalLabel">Tambah data Mahasiswa</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -53,6 +55,7 @@
 
 
 	  <form action="<?= BASEURL; ?>/mahasiswa/tambah" method="post">
+	  <input type="hidden" name="id" id="id">
 
 		<div class="form-group">
 			<label for="nama">Nama</label>
